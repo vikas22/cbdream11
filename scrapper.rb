@@ -29,13 +29,13 @@ def scrapper
 end
 
 def register
-  players = [1495,1513,896,431,99,1453,1364,1161,8793,1517]
-  user = 6
+  players = [10185,669,2107,1488,1085,1979,1233,1162,33,873,1885,35,1193,8605,1343,1436,1195]
+  user = 10
     players.each do |player|
 
     puts player
-    puts 'https://shielded-forest-33649.herokuapp.com/players/user/'+ player.to_s + '/' + user.to_s
-    url = URI.parse('https://shielded-forest-33649.herokuapp.com/players/user/'+ player.to_s + '/' + user.to_s)
+    puts 'https://cbdream11.herokuapp.com/players/user/'+ player.to_s + '/' + user.to_s
+    url = URI.parse('https://cbdream11.herokuapp.com/players/user/'+ player.to_s + '/' + user.to_s)
     req_options = {
       use_ssl: url.scheme == "https",
     }
@@ -47,4 +47,27 @@ def register
   end
 end
 
-register
+def search
+  names = ["Ishan Jaggi","KM Asif","K Jagadeesan","Mayank Markande","Kamlesh Nagarkoti","D'Arcy Short","Virat Kohli","Murugan Ashwin","MD Nidheesh","Shane Watson","Anukul Roy","Akila Dananjaya","Manoj Tiwary","Avesh Khan","Kulwant Kejroliya","Moshin Khan","Pawan Deshpande","MS Dhoni","Sayan Ghosh","Karn Sharma","Imran Tahir","Rahul Chahar"]
+  ids = []
+  names.each do |name|
+    url = URI.parse('https://cbdream11.herokuapp.com/players/search/'+ name.to_s.gsub(" ", "%20") )
+    req_options = {
+      use_ssl: url.scheme == "https",
+    }
+    req = Net::HTTP::Get.new(url.to_s)
+    res = Net::HTTP.start(url.host, url.port, req_options) {|http|
+      http.request(req)
+    }
+    if(res.to_s.strip.empty?)
+      puts "couldn't find id for "  + name
+    else
+      puts name + " = " + res.to_s
+      ids << res.to_s
+    end
+    puts ids
+  end
+end
+
+# register
+search

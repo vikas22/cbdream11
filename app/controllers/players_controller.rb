@@ -7,6 +7,17 @@ class PlayersController < ApplicationController
     @players = Player.order("players.id ASC").all
   end
 
+
+  def search
+    player =  Player.find_by(name: params[:name])
+    puts player
+    id = nil
+    if(player != nil)
+      id = player.id
+    end
+    puts id
+    render plain: id
+  end
   # GET /players/1
   # GET /players/1.json
   def show
