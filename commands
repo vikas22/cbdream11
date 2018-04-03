@@ -1,0 +1,18 @@
+docker rm -f some-postgres
+docker run -p 5432:5432 --name some-postgres -e POSTGRES_USER=dream11 -e POSTGRES_DB=dream11_development -e POSTGRES_PASSWORD=docker -d postgres
+
+rails generate scaffold User name:string
+rails generate scaffold Team name:string
+rails generate scaffold Player  name:string team:references user:references is_captain:boolean is_vice_captain:boolean
+
+
+rails destroy scaffold User
+rails destroy scaffold Team
+rails destroy scaffold Player
+
+
+
+http://localhost:3000/scrap/811/10511
+http://localhost:3000/scrap/811/10512
+http://localhost:3000/scrap/811/10513
+http://localhost:3000/scrap/811/10514
