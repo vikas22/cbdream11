@@ -1,4 +1,23 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<h1>Players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+    <% if(user.id != 1) %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= link_to 'teams', "/players/user/" + user.id.to_s %></td>
+    </tr>
+    <%end%>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -4,7 +4,7 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    @players = Player.order("players.id ASC").all
   end
 
   # GET /players/1
@@ -59,6 +59,18 @@ class PlayersController < ApplicationController
       format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def user
+    @players = Player.where(user_id: params[:userId])
+    @user = User.find(params[:userId])
+  end
+
+  def update_user
+    player = Player.find(params[:playerId])
+    player.update(user_id: params[:userId] )
+    player.save
+    render plain: "OK"
   end
 
   private
