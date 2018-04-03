@@ -14,7 +14,7 @@
     <% if(user.id != 1) %>
     <tr>
       <td style="text-align:left"><%= link_to user.name , "/players/user/" + user.id.to_s %> </td>
-      <td><center><%= Player.where(user_id: user.id).count.to_s %></center></td>
+      <td><center><%= @counts[user.id] %></center></td>
       <!-- <td><%= link_to 'team', "/players/user/" + user.id.to_s %></td> -->
     </tr>
     <%end%>
