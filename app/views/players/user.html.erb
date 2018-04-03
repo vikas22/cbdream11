@@ -8,8 +8,6 @@
       <th>ID</th>
       <th>Name</th>
       <th>Team</th>
-      <th>captain</th>
-      <th>vice-captain</th>
     </tr>
   </thead>
 
@@ -20,14 +18,10 @@
         <td><%= player.name %></td>
         <td><%= player.team.name %></td>
         <% if(player.is_captain) %>
-        <td>YES</td>
-        <% else %>
-        <td> - </td>
+        <td>C</td>
         <%end%>
         <% if(player.is_vice_captain) %>
-        <td>YES</td>
-        <% else %>
-        <td> - </td>
+        <td>VC</td>
         <%end%>
       </tr>
     <% end %>
