@@ -15,7 +15,7 @@
     <% @players.each do |player| %>
       <tr>
         <td><%= player.id %></td>
-        <td><%= player.name %><% if(player.is_captain) %>C<%end%> <% if(player.is_captain) %>VC<%end%></td>
+        <td><%= player.name %><% if(player.is_captain) %>(C)<%end%> <% if(player.is_captain) %>(VC)<%end%></td>
         <td><%= player.team.name %></td>
       </tr>
     <% end %>
