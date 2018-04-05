@@ -15,8 +15,8 @@
     <% @users.each do |user| %>
     <tr>
       <td style="text-align:left"><%= link_to user.name , "/players/user/" + user.id.to_s %> </td>
-      <td><%if !@captains[user.id].nil? %><%= @captains[user.id].name %><%else%> <center>-</center> <%end%></td>
-      <td><%if !@vice_captains[user.id].nil? %><%= @vice_captains[user.id].name %><%else%> <center>-</center> <%end%></td>
+      <td><%if !@captains[user.id].nil? %><center><%= @captains[user.id].name %></center><%else%> <center>-</center> <%end%></td>
+      <td><%if !@vice_captains[user.id].nil? %><center><%= @vice_captains[user.id].name %></center><%else%> <center>-</center> <%end%></td>
         <td><center><%= @players[user.id].size %></center></td>
     </tr>
     <% end %>
