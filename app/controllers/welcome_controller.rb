@@ -15,7 +15,7 @@ class WelcomeController < ApplicationController
             @captains[user_id]= player
           end
           if(player.is_vice_captain)
-            @captains[user_id]= player
+            @vice_captains[user_id]= player
           end
         end
       end
