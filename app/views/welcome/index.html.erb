@@ -13,15 +13,12 @@
 
   <tbody>
     <% @users.each do |user| %>
-    <!-- <% if(user.id == 2) %> -->
     <tr>
       <td style="text-align:left"><%= link_to user.name , "/players/user/" + user.id.to_s %> </td>
       <td><%if !@captains[user.id].nil? %><%= @captains[user.id].name %><%else%> <center>-</center> <%end%></td>
-      <td><%if !@vice_captains[user.id].nil? %><%= @captains[user.id].name %><%else%> <center>-</center> <%end%></td>
+      <td><%if !@vice_captains[user.id].nil? %><%= @vice_captains[user.id].name %><%else%> <center>-</center> <%end%></td>
         <td><center><%= @players[user.id].size %></center></td>
-      <!-- <td><%= link_to 'team', "/players/user/" + user.id.to_s %></td> -->
     </tr>
-    <!-- <%end%> -->
     <% end %>
   </tbody>
 </table>
