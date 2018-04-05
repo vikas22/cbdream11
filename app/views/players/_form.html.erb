@@ -22,9 +22,9 @@
     <%= form.hidden_field :team_id, id: :player_team_id  %>
   </div>
 
-  <div class="field">
+  <div class="field" style="display:none">
     <%= form.label :user_id %>
-    <%= collection_select(:player, :user_id, User.all, :id, :name, prompt: true  )%>
+    <%= collection_select(:player, :user_id, User.all, :id, :name, prompt: true )%>
   </div>
 
   <div class="field">
