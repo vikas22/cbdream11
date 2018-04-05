@@ -17,9 +17,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :team_name %>
-    <%= form.label @player.team.name %>
-    <%= form.hidden_field :team_id, id: :player_team_id  %>
+
+    <% if(!@player.team.nil?)%>
+      <%= form.label :team_name %>
+      <%= form.label @player.team.name %>
+      <%= form.hidden_field :team_id, id: :player_team_id  %>
+    <%else%>
+      <%= form.label :team_id %>
+      <%= form.text_field :team_id, id: :player_team_id  %>
+      <%end%>
   </div>
 
   <div class="field" style="display:none">
