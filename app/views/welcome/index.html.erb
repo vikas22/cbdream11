@@ -4,20 +4,24 @@
   <thead>
     <tr>
       <th style="text-align:left">Name</th>
-      <th>count </th>
+      <th>Captain </th>
+      <th>Vice Captain </th>
+      <th>Players count </th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-    <% if(user.id != 1) %>
+    <!-- <% if(user.id == 2) %> -->
     <tr>
       <td style="text-align:left"><%= link_to user.name , "/players/user/" + user.id.to_s %> </td>
-      <td><center><%= @counts[user.id] %></center></td>
+      <td><%if !@captains[user.id].nil? %><%= @captains[user.id].name %><%else%> <center>-</center> <%end%></td>
+      <td><%if !@vice_captains[user.id].nil? %><%= @captains[user.id].name %><%else%> <center>-</center> <%end%></td>
+        <td><center><%= @players[user.id].size %></center></td>
       <!-- <td><%= link_to 'team', "/players/user/" + user.id.to_s %></td> -->
     </tr>
-    <%end%>
+    <!-- <%end%> -->
     <% end %>
   </tbody>
 </table>
