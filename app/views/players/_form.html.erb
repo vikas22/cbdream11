@@ -28,7 +28,7 @@
       <%end%>
   </div>
 
-  <div class="field" style="display:none">
+  <div class="field" >
     <%= form.label :user_id %>
     <%= collection_select(:player, :user_id, User.all, :id, :name, prompt: true )%>
   </div>
