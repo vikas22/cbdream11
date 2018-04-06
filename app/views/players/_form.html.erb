@@ -28,7 +28,7 @@
       <%end%>
   </div>
 
-  <div class="field" >
+  <div class="field" style="display:none">
     <%= form.label :user_id %>
     <%= collection_select(:player, :user_id, User.all, :id, :name, prompt: true )%>
   </div>
@@ -43,7 +43,7 @@
     <%= form.check_box :is_vice_captain, id: :player_is_vice_captain %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="display:none">
     <%= form.submit %>
   </div>
 <% end %>
