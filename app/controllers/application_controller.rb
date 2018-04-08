@@ -13,8 +13,13 @@ class ApplicationController < ActionController::Base
     puts "----------------"
     names = []
     response_hash["data"]["site"]["tour"]["match"]["players"].each {|x|
-      team  = Team.find_or_create_by(name: x["squad"]["shortName"], id:x["squad"]["id"]   )
-      Player.find_or_create_by(name: x["name"], id: x["id"], team: team, user_id: 1, is_vice_captain:false, is_captain:false)
+      begin
+        team  = Team.find_or_create_by(name: x["squad"]["shortName"], id:x["squad"]["id"])
+        player = Player.find(x["id"])
+      rescue ActiveRecord::RecordNotFound
+        Player.find_or_create_by(id: x["id"],name: x["name"],team: team, user_id: 1, is_vice_captain:false, is_captain:false)
+      end
+
     }
     render plain: response_hash["data"]["site"]["tour"]["match"]["players"].to_json
   end
