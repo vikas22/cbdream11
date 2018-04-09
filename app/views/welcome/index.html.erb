@@ -8,7 +8,7 @@
       <th>Captain </th>
       <th>Vice Captain </th>
       <th>Players count </th>
-      <th>Score</th>
+      <!-- <th>Score</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
       <td><%if !@captains[userId].nil? %><center><%= @captains[userId].name %></center><%else%> <center>-</center> <%end%></td>
       <td><%if !@vice_captains[userId].nil? %><center><%= @vice_captains[userId].name %></center><%else%> <center>-</center> <%end%></td>
       <td><center><%= @players[userId].size %></center></td>
-      <td><center><%= value %></center></td>
+      <!-- <td><center><%= value %></center></td> -->
     </tr>
     <% end %>
   </tbody>
