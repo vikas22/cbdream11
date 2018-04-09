@@ -60,4 +60,31 @@ module Dream11Helper
     end
     response.body
   end
+
+  def getScoreCard(tourId, matchId)
+    uri = URI.parse("https://www.dream11.com/graphql")
+    request = Net::HTTP::Post.new(uri)
+    request.content_type = "application/json"
+    request["Accept"] = "*/*"
+    request["Accept-Language"] = "en-US,en;q=0.5"
+    request["Connection"] = "keep-alive"
+    request["Referer"] = "https://www.dream11.com/cricket/fantasy-scorecard/#{tourId}/#{matchId}"
+    request.body = JSON.dump({
+      "query" => "query FantasyScoreCard($site: String!, $tourId: Int!, $matchId: Int!) { site(slug: $site) { fantasyScoreCardHeader { name } tour(id: $tourId) { match(id: $matchId) { status squads { name shortName flag { src } } fantasyScoreCard { players { player { name } fantasyPoints { score } } } } } }}",
+      "variables" => {
+        "tourId" => tourId,
+        "matchId" => matchId,
+        "site" => "cricket"
+      }
+    })
+
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+    response.body
+  end
 end

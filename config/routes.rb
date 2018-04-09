@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :player_scores
   resources :players
   resources :teams
   resources :users
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get '/scrap/:tourId/:matchId', to: 'application#scrap'
+  get '/score/:tourId/:matchId', to: 'application#scrapScoreCard'
   get '/players/user/:userId', to: 'players#user'
   get '/players/user/:playerId/:userId', to: 'players#update_user'
   get '/players/search/:name', to: 'players#search'

@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: one
+  starting_11: 1.5
+  runs: 1.5
+  fours: 1.5
+  sixes: 1.5
+  str: 1.5
+  centuries: 1.5
+  duck: 1.5
+  wkts: 1.5
+  maiden: 1.5
+  er: 1.5
+  bonus: 1.5
+  catches: 1.5
+  runout: 1.5
+  total: 1.5
+  match_id: 1
+  match: MyString
+
+two:
+  player: two
+  starting_11: 1.5
+  runs: 1.5
+  fours: 1.5
+  sixes: 1.5
+  str: 1.5
+  centuries: 1.5
+  duck: 1.5
+  wkts: 1.5
+  maiden: 1.5
+  er: 1.5
+  bonus: 1.5
+  catches: 1.5
+  runout: 1.5
+  total: 1.5
+  match_id: 1
+  match: MyString

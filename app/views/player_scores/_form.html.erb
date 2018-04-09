@@ -1,0 +1,102 @@
+<%= form_with(model: player_score, local: true) do |form| %>
+  <% if player_score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(player_score.errors.count, "error") %> prohibited this player_score from being saved:</h2>
+
+      <ul>
+      <% player_score.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :player_id %>
+    <%= form.text_field :player_id, id: :player_score_player_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :starting_11 %>
+    <%= form.text_field :starting_11, id: :player_score_starting_11 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :runs %>
+    <%= form.text_field :runs, id: :player_score_runs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fours %>
+    <%= form.text_field :fours, id: :player_score_fours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sixes %>
+    <%= form.text_field :sixes, id: :player_score_sixes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :str %>
+    <%= form.text_field :str, id: :player_score_str %>
+  </div>
+
+  <div class="field">
+    <%= form.label :centuries %>
+    <%= form.text_field :centuries, id: :player_score_centuries %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duck %>
+    <%= form.text_field :duck, id: :player_score_duck %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wkts %>
+    <%= form.text_field :wkts, id: :player_score_wkts %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maiden %>
+    <%= form.text_field :maiden, id: :player_score_maiden %>
+  </div>
+
+  <div class="field">
+    <%= form.label :er %>
+    <%= form.text_field :er, id: :player_score_er %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bonus %>
+    <%= form.text_field :bonus, id: :player_score_bonus %>
+  </div>
+
+  <div class="field">
+    <%= form.label :catches %>
+    <%= form.text_field :catches, id: :player_score_catches %>
+  </div>
+
+  <div class="field">
+    <%= form.label :runout %>
+    <%= form.text_field :runout, id: :player_score_runout %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total %>
+    <%= form.text_field :total, id: :player_score_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :match_id %>
+    <%= form.number_field :match_id, id: :player_score_match_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :match %>
+    <%= form.text_field :match, id: :player_score_match %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

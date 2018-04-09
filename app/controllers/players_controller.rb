@@ -75,6 +75,7 @@ class PlayersController < ApplicationController
   def user
     @players = Player.where(user_id: params[:userId])
     @user = User.find(params[:userId])
+    
   end
 
   def update_user

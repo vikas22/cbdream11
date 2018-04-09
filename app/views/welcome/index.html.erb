@@ -8,17 +8,19 @@
       <th>Captain </th>
       <th>Vice Captain </th>
       <th>Players count </th>
+      <th>Score</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @total.each do |userId, value| %>
     <tr>
-      <td style="text-align:left"><%= link_to user.name , "/players/user/" + user.id.to_s %> </td>
-      <td><%if !@captains[user.id].nil? %><center><%= @captains[user.id].name %></center><%else%> <center>-</center> <%end%></td>
-      <td><%if !@vice_captains[user.id].nil? %><center><%= @vice_captains[user.id].name %></center><%else%> <center>-</center> <%end%></td>
-        <td><center><%= @players[user.id].size %></center></td>
+      <td style="text-align:left"><%= link_to @users[userId].first.name , "/players/user/" + userId.to_s %> </td>
+      <td><%if !@captains[userId].nil? %><center><%= @captains[userId].name %></center><%else%> <center>-</center> <%end%></td>
+      <td><%if !@vice_captains[userId].nil? %><center><%= @vice_captains[userId].name %></center><%else%> <center>-</center> <%end%></td>
+      <td><center><%= @players[userId].size %></center></td>
+      <td><center><%= value %></center></td>
     </tr>
     <% end %>
   </tbody>

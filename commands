@@ -4,11 +4,17 @@ docker run -p 5432:5432 --name some-postgres -e POSTGRES_USER=dream11 -e POSTGRE
 rails generate scaffold User name:string
 rails generate scaffold Team name:string
 rails generate scaffold Player  name:string team:references user:references is_captain:boolean is_vice_captain:boolean
+rails generate scaffold PlayerScore  player:references starting_11:float runs:float fours:float sixes:float str:float centuries:float duck:float wkts:float maiden:float er:float bonus:float catches:float runout:float total:float match_id:integer match:string
 
 
 rails destroy scaffold User
 rails destroy scaffold Team
 rails destroy scaffold Player
+rails destroy scaffold PlayerScore
+
+
+curl 'https://www.dream11.com/graphql' -H 'Accept: */*' --compressed -H 'Accept-Language: en-US,en;q=0.5' -H 'Connection: keep-alive' -H 'content-type: application/json' -H 'Cookie: origin-referer=https%3A%2F%2Fwww.dream11.com%2Fcricket%2Ffantasy-scorecard%2F797%2F10381; connect.sid=s%3A2h1fEMt8wR6QHpfr2RZKitA-KwHEG_B4.rUs5j1UnuqvVID1nddTPWol0XL%2B317zeLcijcP398jI; ajs_user_id=null; ajs_group_id=null; ajs_anonymous_id=%2286edf49d-4c50-4021-acc8-217e8658a1e6%22; _ga=GA1.2.1281572903.1521272623; fraudId=152127262568973yuyg7vgny1ra4i; WZRK_G=bd54dc3b45124cedb5b711d9acf1dc58; WZRK_S_W4R-49K-494Z=%7B%22p%22%3A7%2C%22s%22%3A1523197996%2C%22t%22%3A1523198182%7D; __csrf=570efbd7-25bc-b674-5879-47b84d63db82; _gid=GA1.2.538498584.1523197996; amplitude_idundefineddream11.com=eyJkZXZpY2VJZCI6IjU0ZWFlYTM3LWE1MTQtNDg1Yi1hZDQ2LTIxMmI1MTY4NWVkZVIiLCJvcHRPdXQiOmZhbHNlLCJzZXNzaW9uSWQiOjE1MjEyNzI2MjMwMDksImxhc3RFdmVudFRpbWUiOjE1MjEyNzI2NDE1NjIsImV2ZW50SWQiOjAsImlkZW50aWZ5SWQiOjEsInNlcXVlbmNlTnVtYmVyIjoxfQ==; amplitude_id_6d8385f9bbeae68263f41eca9918e1c9dream11.com=eyJkZXZpY2VJZCI6IjRhMWFjMWEyLTI3MjMtNDIwOS05M2ZjLTc3OWFmOWIzM2E5NFIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTUyMzE5Nzk5NjI3NiwibGFzdEV2ZW50VGltZSI6MTUyMzE5ODE4MTg3MiwiZXZlbnRJZCI6NiwiaWRlbnRpZnlJZCI6Miwic2VxdWVuY2VOdW1iZXIiOjh9; ki_t=1523197996304%3B1523197996304%3B1523198181904%3B1%3B3; ki_r=; _gat=1' -H 'Host: www.dream11.com' -H 'origin: https://www.dream11.com' -H 'Referer: https://www.dream11.com/cricket/create-team/811/10514?returnUrl=https%3A%2F%2Fwww.dream11.com%2Fcricket%2Fleagues%2FIndian%2520T20%2520League%2F811%2F10514' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0' -H 'x-csrf: 570efbd7-25bc-b674-5879-47b84d63db82' --data '{"query":"query CreateTeamQuery( $site: String! $tourId: Int! $teamId: Int = -1 $matchId: Int!) { site(slug: $site) { name teamPreviewArtwork { src } teamCriteria { totalCredits maxPlayerPerSquad totalPlayerCount } roles { id artwork { src } color name pointMultiplier shortName } playerTypes { id name minPerTeam maxPerTeam shortName artwork { src } } tour(id: $tourId) { match(id: $matchId) { guru squads { flag { src } id jerseyColor name shortName } startTime status players(teamId: $teamId) { artwork { src } squad { id name jerseyColor shortName } credits id name points type { id maxPerTeam minPerTeam name shortName } isSelected role { id artwork { src } color name pointMultiplier shortName } } } } }}","variables":{"tourId":811,"matchId":10514,"teamId":null,"site":"cricket"}}'
+
 
 
 

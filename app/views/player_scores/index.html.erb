@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Player Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Starting 11</th>
+      <th>Runs</th>
+      <th>Fours</th>
+      <th>Sixes</th>
+      <th>Str</th>
+      <th>Centuries</th>
+      <th>Duck</th>
+      <th>Wkts</th>
+      <th>Maiden</th>
+      <th>Er</th>
+      <th>Bonus</th>
+      <th>Catches</th>
+      <th>Runout</th>
+      <th>Total</th>
+      <th>Match</th>
+      <th>Match</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @player_scores.each do |player_score| %>
+      <tr>
+        <td><%= player_score.player.name %></td>
+        <td><%= player_score.starting_11 %></td>
+        <td><%= player_score.runs %></td>
+        <td><%= player_score.fours %></td>
+        <td><%= player_score.sixes %></td>
+        <td><%= player_score.str %></td>
+        <td><%= player_score.centuries %></td>
+        <td><%= player_score.duck %></td>
+        <td><%= player_score.wkts %></td>
+        <td><%= player_score.maiden %></td>
+        <td><%= player_score.er %></td>
+        <td><%= player_score.bonus %></td>
+        <td><%= player_score.catches %></td>
+        <td><%= player_score.runout %></td>
+        <td><%= player_score.total %></td>
+        <td><%= player_score.match_id %></td>
+        <td><%= player_score.match %></td>
+        <!-- <td><%= link_to 'Show', player_score %></td>
+        <td><%= link_to 'Edit', edit_player_score_path(player_score) %></td>
+        <td><%= link_to 'Destroy', player_score, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player Score', new_player_score_path %>
