@@ -22,7 +22,7 @@ class WelcomeController < ApplicationController
         end
         @total[user_id] = sum
       end
-      @total.sort_by {|k, v| v}
+      @total.sort_by {|k, v| v}.reverse
       puts @total
   end
 
