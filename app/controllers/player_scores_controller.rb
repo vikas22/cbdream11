@@ -1,5 +1,5 @@
 class PlayerScoresController < ApplicationController
-  before_action :set_player_score, only: [:show, :edit, :update, :destroy]
+  before_action only: [:show, :edit, :update, :destroy]
 
   # GET /player_scores
   # GET /player_scores.json
@@ -10,6 +10,7 @@ class PlayerScoresController < ApplicationController
   # GET /player_scores/1
   # GET /player_scores/1.json
   def show
+      @player_scores = PlayerScore.where(player_id: params[:id])
   end
 
   # GET /player_scores/new
@@ -64,11 +65,11 @@ class PlayerScoresController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player_score
-      @player_score = PlayerScore.find(params[:id])
+      @player_score = PlayerScore.where(player_id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_score_params
-      params.require(:player_score).permit(:player_id, :starting_11, :runs, :fours, :sixes, :str, :centuries, :duck, :wkts, :maiden, :er, :bonus, :catches, :runout, :total, :match_id, :match)
+      params.require(:player_score).permit(:player, :Starting_11)
     end
 end

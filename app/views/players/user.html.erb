@@ -15,7 +15,8 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.id %></td>
+
+        <td><%= link_to player.id , "/player_scores/" + player.id.to_s %></td>
         <td><%= player.name + " " %><% if(player.is_captain) %>(C)<%end%> <% if(player.is_vice_captain) %>(VC)<%end%></td>
         <td><%= player.team.name %></td>
         <% if(player.is_captain) %>
