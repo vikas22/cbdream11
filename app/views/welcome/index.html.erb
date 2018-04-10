@@ -14,13 +14,13 @@
   </thead>
 
   <tbody>
-    <% @total.each do |userId, value| %>
+    <% @total.reverse.each do |userId, value| %>
     <tr>
       <td style="text-align:left"><%= link_to @users[userId].first.name , "/players/user/" + userId.to_s %> </td>
       <td><%if !@captains[userId].nil? %><center><%= @captains[userId].name %></center><%else%> <center>-</center> <%end%></td>
       <td><%if !@vice_captains[userId].nil? %><center><%= @vice_captains[userId].name %></center><%else%> <center>-</center> <%end%></td>
       <td><center><%= @players[userId].size %></center></td>
-      <!-- <td><center><%= value %></center></td> -->
+      <td><center><%= value %></center></td>
     </tr>
     <% end %>
   </tbody>

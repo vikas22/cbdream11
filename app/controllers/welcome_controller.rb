@@ -6,8 +6,8 @@ class WelcomeController < ApplicationController
     @vice_captains = {}
     @total = {}
     @players = Player.where.not(user_id: 1).group_by(&:user_id)
-      sum = 0
       @players.each do |user_id, players|
+        sum = 0
         players.each do |player|
           total = player.player_scores.sum(:total)
           if(player.is_captain)
@@ -22,7 +22,7 @@ class WelcomeController < ApplicationController
         end
         @total[user_id] = sum
       end
-      @total.sort_by {|k, v| v}.reverse
+      @total.sort_by {|k, v| v}
       puts @total
   end
 
