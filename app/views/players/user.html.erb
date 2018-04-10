@@ -18,7 +18,14 @@
         <td><%= player.id %></td>
         <td><%= player.name + " " %><% if(player.is_captain) %>(C)<%end%> <% if(player.is_vice_captain) %>(VC)<%end%></td>
         <td><%= player.team.name %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <% if(player.is_captain) %>
+        <td><%= player.player_scores.sum(:total) * 2 %></td>
+        <% elsif(player.is_vice_captain) %>
+        <td><%= player.player_scores.sum(:total) * 1.5 %></td>
+        <%else%>
+        <td><%= player.player_scores.sum(:total) %></td>
+        <%end%>
+        <!-- <td><%= link_to 'Edit', edit_player_path(player) %></td> -->
       </tr>
     <% end %>
   </tbody>
