@@ -56,5 +56,6 @@ class ApplicationController < ActionController::Base
     players.each do |player|
       PlayerScore.where(player_id: player.id).destroy_all
     end
+    render plain: "DONE"
   end
 end
