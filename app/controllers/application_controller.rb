@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
   end
 
   def destroyUser
-    players = Players.where(user_id: params[:id])
+    players = Player.where(user_id: params[:id])
     players.each do |player|
       PlayerScore.where(player_id: player.id).destroy_all
     end
