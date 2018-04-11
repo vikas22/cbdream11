@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get '/players/user/:userId', to: 'players#user'
   get '/players/user/:playerId/:userId', to: 'players#update_user'
   get '/players/search/:name', to: 'players#search'
+  get '/user/destroy/:id', to: 'application#destroyUser'
 
 end
