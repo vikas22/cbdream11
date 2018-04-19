@@ -31,7 +31,9 @@ class WelcomeController < ApplicationController
         index = if(scores.length >= 11)then 11 else scores.length end
         top11Sum = 0
         for i in 0..index
+          if(scores[i]!=nil)
             top11Sum = top11Sum + scores[i]
+          end
         end
         @top11[user_id] = top11Sum
         @total[user_id] = sum
