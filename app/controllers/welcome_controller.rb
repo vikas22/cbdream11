@@ -28,7 +28,7 @@ class WelcomeController < ApplicationController
           scores << score
         end
         scores = scores.sort.reverse
-        index = if(scores.length >= 11)then 11 else scores.length end
+        index = if(scores.length >= 10)then 10 else scores.length end
         top11Sum = 0
         for i in 0..index
           if(scores[i]!=nil)
