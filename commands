@@ -1,3 +1,4 @@
+
 docker rm -f some-postgres
 docker run -p 5432:5432 --name some-postgres -e POSTGRES_USER=dream11 -e POSTGRES_DB=dream11_development -e POSTGRES_PASSWORD=docker -d postgres
 
