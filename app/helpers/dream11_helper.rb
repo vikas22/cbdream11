@@ -68,13 +68,14 @@ module Dream11Helper
   end
 
   def getScoreCard(tourId, matchId)
-    uri = URI.parse("https://www.dream11.com/graphql")
+    uri = URI.parse("https://www.dream11.com/graphql/query/pwa/fantasy-score-card")
     request = Net::HTTP::Post.new(uri)
     request.content_type = "application/json"
-    request["Accept"] = "*/*"
-    request["Accept-Language"] = "en-US,en;q=0.5"
-    request["Connection"] = "keep-alive"
     request["Referer"] = "https://www.dream11.com/cricket/fantasy-scorecard/#{tourId}/#{matchId}"
+    request["Origin"] = "https://www.dream11.com"
+    request["Device"] = "pwa"
+    request["X-Csrf"] = "9a6ca435-7ed4-c3d0-e5bf-a18db8fb035e"
+    request["User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
     request.body = JSON.dump({
       "query" => "query FantasyScoreCard($site: String!, $tourId: Int!, $matchId: Int!) { site(slug: $site) { fantasyScoreCardHeader { name } tour(id: $tourId) { match(id: $matchId) { status squads { name shortName flag { src } } fantasyScoreCard { players { player { name } fantasyPoints { score } } } } } }}",
       "variables" => {
