@@ -16,7 +16,8 @@ class LeaguesController < ApplicationController
     @top11 = {}
     @users = {}
     @players = TeamPlayer.where(league_id: @league.id).group_by(&:user_id)
-
+    p(@players)
+    p(@league.id)
       @players.each do |user_id, players|
         @users[user_id] = players.first.user
         sum = 0
