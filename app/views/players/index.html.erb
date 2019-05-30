@@ -18,11 +18,6 @@
         <td><%= player.id %></td>
         <td><%= player.name %></td>
         <td><%= player.team.name %></td>
-        <% if(player.user.id != 1) %>
-          <td><%= player.user.name %></td>
-        <%else%>
-          <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <%end%>
       </tr>
     <% end %>
   </tbody>

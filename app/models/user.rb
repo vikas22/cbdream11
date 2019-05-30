@@ -1,3 +1,4 @@
 class User < ApplicationRecord
-  has_many :Player
+  belongs_to :league
 end
+

@@ -1,0 +1,32 @@
+
+<h1>Players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th>Captain </th>
+      <th>Vice Captain </th>
+      <th>Players count </th>
+      <th>total Score</th>
+      <th>top11 Score</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @top11.each do |userId, value| %>
+    <tr>
+      <td style="text-align:left"><%= link_to @users[userId].name , "/players/user/" + userId.to_s %> </td>
+      <td><%if !@captains[userId].nil? %><center><%= @captains[userId].player.name %></center><%else%> <center>-</center> <%end%></td>
+      <td><%if !@vice_captains[userId].nil? %><center><%= @captains[userId].player.name %></center><%else%> <center>-</center> <%end%></td>
+      <td><center><%= @players[userId].size %></center></td>
+      <td><center><%= @total[userId] %></center></td>
+      <td><center><%= value %></center></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

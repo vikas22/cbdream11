@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  league: one
+  team: one
+  player: one
+  is_captain: false
+  is_vice_captain: false
+
+two:
+  league: two
+  team: two
+  player: two
+  is_captain: false
+  is_vice_captain: false
