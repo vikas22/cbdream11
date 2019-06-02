@@ -20,7 +20,7 @@
     <tr>
       <td style="text-align:left"><%= link_to @users[userId].name , "/players/user/" + userId.to_s %> </td>
       <td><%if !@captains[userId].nil? %><center><%= @captains[userId].player.name %></center><%else%> <center>-</center> <%end%></td>
-      <td><%if !@vice_captains[userId].nil? %><center><%= @captains[userId].player.name %></center><%else%> <center>-</center> <%end%></td>
+      <td><%if !@vice_captains[userId].nil? %><center><%= @vice_captains[userId].player.name %></center><%else%> <center>-</center> <%end%></td>
       <td><center><%= @players[userId].size %></center></td>
       <td><center><%= @total[userId] %></center></td>
       <td><center><%= value %></center></td>
