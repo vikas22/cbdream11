@@ -16,8 +16,6 @@ class LeaguesController < ApplicationController
     @top11 = {}
     @users = {}
     @players = TeamPlayer.where(league_id: @league.id).group_by(&:user_id)
-    p(@players)
-    p(@league.id)
       @players.each do |user_id, players|
         @users[user_id] = players.first.user
         sum = 0
@@ -49,12 +47,13 @@ class LeaguesController < ApplicationController
         end
         @top11[user_id] = top11Sum
         @total[user_id] = sum
+        p(@users[user_id])
+        p(top11Sum)
+        p(sum)
       end
 
       # @total = @total.sort_by {|k, v| v}.reverse
       @top11 = @top11.sort_by {|k, v| v}.reverse
-      p(@users);
-
   end
 
 
