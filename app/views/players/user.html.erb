@@ -22,10 +22,10 @@
         <% if(player.is_captain) %>
         <td><%= player.player.player_scores.sum(:total) * 2 %></td>
         <% elsif(player.is_vice_captain) %>
-        <% if((@user.id == 39) && (playert.player.id == 863)) %>
-          <td><%= (player.player.player_scores.sum(:total) * 1.5) - (playert.player.player_scores.where("match_id <= ?", 14747).sum(:total) * 1.5) %></td>
-        <% elsif(@user.id == 50) && (playert.player.id == 119) %>
-          <td><%= (player.player.player_scores.sum(:total) * 1.5) - (playert.player.player_scores.where("match_id <= ?", 14747).sum(:total) * 1.5) %></td>
+        <% if((@user.id == 39) && (player.player.id == 863)) %>
+          <td><%= (player.player.player_scores.sum(:total) * 1.5) - (player.player.player_scores.where("match_id <= ?", 14747).sum(:total) * 1.5) %></td>
+        <% elsif(@user.id == 50) && (player.player.id == 119) %>
+          <td><%= (player.player.player_scores.sum(:total) * 1.5) - (player.player.player_scores.where("match_id <= ?", 14747).sum(:total) * 1.5) %></td>
         <% else %>
           <td><%= player.player.player_scores.sum(:total) * 1.5 %></td>
         <% end %>
