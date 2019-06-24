@@ -20,8 +20,28 @@ class LeaguesController < ApplicationController
         @users[user_id] = players.first.user
         sum = 0
         scores = []
+
         players.each do |playert|
-          total = playert.player.player_scores.sum(:total)
+          total1  = 0
+          if ((user_id == 39) and (playert.player.id == 863))
+            total = playert.player.player_scores.sum(:total)
+
+            total1 = playert.player.player_scores.where("match_id <= ", 14747).sum(:total)
+
+            total = total - total1
+          if ((user_id == 50) and (playert.player.id == 119))
+            total = playert.player.player_scores.sum(:total)
+
+            total1 = playert.player.player_scores.where("match_id <= ", 14747).sum(:total)
+
+            total = total - total1
+
+          else
+            total = playert.player.player_scores.sum(:total)
+          end
+
+
+
           score = 0
           if(playert.is_captain)
             score = (total * 2)
@@ -30,6 +50,7 @@ class LeaguesController < ApplicationController
           elsif(playert.is_vice_captain)
             score = (total * 1.5)
             sum = sum + score
+            sum = sum + total1
             @vice_captains[user_id]= playert
           else
             score = total
@@ -47,9 +68,6 @@ class LeaguesController < ApplicationController
         end
         @top11[user_id] = top11Sum
         @total[user_id] = sum
-        p(@users[user_id])
-        p(top11Sum)
-        p(sum)
       end
 
       # @total = @total.sort_by {|k, v| v}.reverse
