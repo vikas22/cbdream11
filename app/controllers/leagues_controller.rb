@@ -25,17 +25,17 @@ class LeaguesController < ApplicationController
           sum1 = playert.player.player_scores.sum(:total)
           total1  = 0
           if ((user_id == 39) && (playert.player.id == 863))
-            total = playert.player.player_scores.where("match_id > ?", 14747).sum(:total)
-            total1 = playert.player.player_scores.where("match_id <= ?", 14747).sum(:total)
+            total = playert.player.player_scores.where("match_id > ?", 14759).sum(:total)
+            total1 = playert.player.player_scores.where("match_id <= ?", 14759).sum(:total)
             p("----------------- BHAI --------------------------------")
             p(total)
             p(total1)
             # p(total - total1)
             # total = total - total1
           elsif ((user_id == 50) && (playert.player.id == 119))
-            total = playert.player.player_scores.where("match_id > ?", 14747).sum(:total)
+            total = playert.player.player_scores.where("match_id > ?", 14759).sum(:total)
 
-            total1 = playert.player.player_scores.where("match_id <= ?", 14747).sum(:total)
+            total1 = playert.player.player_scores.where("match_id <= ?", 14759).sum(:total)
             # p("----------------- 50 --------------------------------")
             # p(total)
             # p(total1)
