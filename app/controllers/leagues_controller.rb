@@ -27,9 +27,9 @@ class LeaguesController < ApplicationController
           if ((user_id == 39) && (playert.player.id == 863))
             total = playert.player.player_scores.where("match_id > ?", 14747).sum(:total)
             total1 = playert.player.player_scores.where("match_id <= ?", 14747).sum(:total)
-            # p("----------------- BHAI --------------------------------")
-            # p(total)
-            # p(total1)
+            p("----------------- BHAI --------------------------------")
+            p(total)
+            p(total1)
             # p(total - total1)
             # total = total - total1
           elsif ((user_id == 50) && (playert.player.id == 119))
