@@ -56,6 +56,10 @@ class LeaguesController < ApplicationController
             score = (total * 1.5)
             sum = sum + score
             sum = sum + total1
+            if (user_id == 39)
+              p("--------------vice_captains")
+              p(sum)
+            end
             @vice_captains[user_id]= playert
           else
             score = total
