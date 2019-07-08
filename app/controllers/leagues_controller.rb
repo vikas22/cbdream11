@@ -70,11 +70,18 @@ class LeaguesController < ApplicationController
           scores << score
         end
         scores = scores.sort.reverse
+        if (user_id = 39)
+          p(scores)
+        end
         index = if(scores.length >= 10)then 10 else scores.length end
         top11Sum = 0
         for i in 0..index
           if(scores[i]!=nil)
             top11Sum = top11Sum + scores[i]
+            if (user_id = 39)
+              p(index)
+              p(scores[i])
+            end
           end
         end
         @top11[user_id] = top11Sum
