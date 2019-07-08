@@ -73,13 +73,13 @@ class LeaguesController < ApplicationController
         if (user_id = 39)
           p(scores)
         end
-        index = if(scores.length >= 10)then 10 else scores.length end
+        ind = if(scores.length >= 10)then 10 else scores.length end
         top11Sum = 0
-        for i in 0..index
+        for i in 0..ind
           if(scores[i]!=nil)
             top11Sum = top11Sum + scores[i]
             if (user_id = 39)
-              p(index)
+              p(ind)
               p(scores[i])
             end
           end
