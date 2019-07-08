@@ -58,7 +58,9 @@ class LeaguesController < ApplicationController
             sum = sum + total1
             if (user_id == 39)
               p("--------------vice_captains")
-              p(sum)
+              p(total)
+              p(score)
+              p(total1)
             end
             @vice_captains[user_id]= playert
           else
