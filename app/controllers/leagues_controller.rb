@@ -54,15 +54,10 @@ class LeaguesController < ApplicationController
             @captains[user_id]= playert
           elsif(playert.is_vice_captain)
             score = (total * 1.5)
+            score = score + total1
             sum = sum + score
             sum = sum + total1
-            if (user_id == 39)
-              p("--------------vice_captains")
-              p(total)
-              p(score)
-              p(total1)
-            end
-            @vice_captains[user_id]= playert
+
           else
             score = total
             sum = sum + total
@@ -70,9 +65,7 @@ class LeaguesController < ApplicationController
           scores << score
         end
         scores = scores.sort.reverse
-        if (user_id = 39)
-          p(scores)
-        end
+
         ind = if(scores.length >= 10)then 10 else scores.length end
         top11Sum = 0
         for i in 0..ind
