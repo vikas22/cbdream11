@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
     league_id = params[:league_id]
     @users = User.all.where(league_id: league_id)
     @palyers = Player.all
-    render 'welcome/index.html.erb'
+    render 'welcome/teams.html.erb'
   end
   def destroyUser
     players = Player.where(user_id: params[:id])
