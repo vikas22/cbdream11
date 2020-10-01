@@ -51,6 +51,12 @@ class ApplicationController < ActionController::Base
     render plain: response_hash["data"]["site"].to_json
   end
 
+  def addPlayers
+    league_id = params[:league_id]
+    @users = User.all.where(league_id: league_id)
+    @palyers = Player.all
+    render 'welcome/index.html.erb'
+  end
   def destroyUser
     players = Player.where(user_id: params[:id])
     players.each do |player|
